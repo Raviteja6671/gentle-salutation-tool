@@ -6,9 +6,12 @@ import { Menu, X } from "lucide-react";
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+      
       const sections = ["home", "about", "skills", "experience", "projects", "contact"];
       const current = sections.find(section => {
         const element = document.getElementById(section);
@@ -41,10 +44,15 @@ export const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      scrolled ? 'glass-effect shadow-lg' : 'bg-transparent'
+    }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="text-2xl font-bold text-primary">
+          <div 
+            className="text-2xl font-bold gradient-text cursor-pointer hover-lift"
+            onClick={() => scrollToSection('home')}
+          >
             Raviteja Kodem
           </div>
 
@@ -54,11 +62,14 @@ export const Navigation = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
+                className={`text-sm font-medium transition-all duration-300 hover:text-primary relative ${
                   activeSection === item.id ? "text-primary" : "text-muted-foreground"
                 }`}
               >
                 {item.label}
+                {activeSection === item.id && (
+                  <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary animate-fade-in" />
+                )}
               </button>
             ))}
           </div>
@@ -67,7 +78,7 @@ export const Navigation = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="md:hidden hover-lift"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -76,14 +87,14 @@ export const Navigation = () => {
 
         {/* Mobile Navigation Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4">
-            <div className="flex flex-col space-y-2">
+          <div className="md:hidden pb-4 glass-effect rounded-lg mt-2 animate-fade-in">
+            <div className="flex flex-col space-y-2 p-4">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`text-left py-2 px-4 text-sm font-medium transition-colors hover:text-primary ${
-                    activeSection === item.id ? "text-primary" : "text-muted-foreground"
+                  className={`text-left py-3 px-4 text-sm font-medium transition-all duration-300 hover:text-primary hover:bg-primary/10 rounded-lg ${
+                    activeSection === item.id ? "text-primary bg-primary/10" : "text-muted-foreground"
                   }`}
                 >
                   {item.label}
