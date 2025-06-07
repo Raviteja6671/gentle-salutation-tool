@@ -1,9 +1,34 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send } from "lucide-react";
+import { useState } from "react";
 
 export const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const { name, email, subject, message } = formData;
+    const mailtoLink = `mailto:raviteja.kodem@example.com?subject=${encodeURIComponent(subject || 'Contact from Portfolio')}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+    window.open(mailtoLink, '_blank');
+  };
+
   const contactInfo = [
     {
       icon: Mail,
@@ -30,19 +55,19 @@ export const Contact = () => {
       icon: Github,
       label: "GitHub",
       href: "https://github.com/ravitejakodem",
-      color: "hover:text-gray-900"
+      color: "hover:text-foreground"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
       href: "https://linkedin.com/in/ravitejakodem",
-      color: "hover:text-blue-600"
+      color: "hover:text-primary"
     },
     {
       icon: Twitter,
       label: "Twitter",
       href: "https://twitter.com/ravitejakodem",
-      color: "hover:text-blue-400"
+      color: "hover:text-primary"
     }
   ];
 
@@ -114,38 +139,81 @@ export const Contact = () => {
             </div>
           </div>
 
-          {/* Quick Message Card */}
+          {/* Contact Form */}
           <Card className="hover:shadow-lg transition-shadow">
             <CardHeader>
-              <CardTitle>Send a Quick Message</CardTitle>
+              <CardTitle>Send Me a Message</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
-              <p className="text-muted-foreground">
-                Interested in working together or have a question? Click the button below 
-                to send me an email directly.
-              </p>
-              
-              <div className="space-y-4">
-                <Button 
-                  className="w-full" 
-                  size="lg"
-                  onClick={() => window.open('mailto:raviteja.kodem@example.com?subject=Hello%20Raviteja&body=Hi%20Raviteja,%0D%0A%0D%0AI%20would%20like%20to%20discuss...', '_blank')}
-                >
-                  <Mail className="mr-2 h-4 w-4" />
-                  Send Email
-                </Button>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                      Your Name
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      type="text"
+                      placeholder="Enter your name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                      Your Email
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="Enter your email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                </div>
                 
-                <Button 
-                  variant="outline" 
-                  className="w-full" 
-                  size="lg"
-                  onClick={() => window.open("https://docs.google.com/document/d/1qjrMbh0RD535hKsqsRCJZCEX4Z634t6X/edit", "_blank")}
-                >
-                  View Resume
-                </Button>
-              </div>
+                <div>
+                  <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
+                    Subject
+                  </label>
+                  <Input
+                    id="subject"
+                    name="subject"
+                    type="text"
+                    placeholder="Enter subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
 
-              <div className="text-center pt-4">
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                    Message
+                  </label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    placeholder="Enter your message here..."
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    rows={5}
+                    required
+                  />
+                </div>
+
+                <Button type="submit" className="w-full" size="lg">
+                  <Send className="mr-2 h-4 w-4" />
+                  Send Message
+                </Button>
+              </form>
+
+              <div className="text-center mt-6 pt-6 border-t border-border">
                 <p className="text-sm text-muted-foreground">
                   I typically respond within 24 hours
                 </p>
