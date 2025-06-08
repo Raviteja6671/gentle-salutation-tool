@@ -7,22 +7,22 @@ export const About = () => {
     {
       icon: <GraduationCap className="h-8 w-8 text-yellow-400" />,
       title: "Fresh Graduate",
-      description: "Recent graduate with a passion for web development and modern technologies"
+      description: "Bachelor of Technology in Computer Science and Engineering (AI and ML) - 2025"
     },
     {
       icon: <Code className="h-8 w-8 text-yellow-400" />,
-      title: "Self-Taught Developer",
-      description: "Continuously learning and building projects to enhance my programming skills"
+      title: "Programming Skills",
+      description: "Proficient in HTML, CSS, Python with experience in AI/ML and software development"
     },
     {
       icon: <Target className="h-8 w-8 text-yellow-400" />,
       title: "Goal-Oriented",
-      description: "Focused on becoming a skilled frontend developer with expertise in React and modern web technologies"
+      description: "Focused on becoming a skilled fullstack developer with expertise in modern technologies"
     },
     {
       icon: <Heart className="h-8 w-8 text-yellow-400" />,
-      title: "Passionate Learner",
-      description: "Enthusiastic about creating beautiful, functional user interfaces and solving complex problems"
+      title: "Problem Solver",
+      description: "Strong analytical mindset with passion for building innovative solutions in software industry"
     }
   ];
 
@@ -37,7 +37,6 @@ export const About = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left side - Content */}
           <div className="space-y-8 animate-slide-in-left">
             <div className="space-y-6">
               <h3 className="text-3xl font-bold text-white">
@@ -45,36 +44,33 @@ export const About = () => {
               </h3>
               <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
                 <p>
-                  I'm a passionate fresher with a strong foundation in frontend development. 
-                  My journey into programming began with curiosity and has grown into a deep 
-                  love for creating intuitive and beautiful web experiences.
+                  I'm an enthusiastic and highly motivated graduate with a strong analytical mindset 
+                  and a passion for software development. With expertise in problem solving and logical 
+                  thinking, I bring a solid foundation in programming languages.
                 </p>
                 <p>
-                  As a recent graduate, I bring fresh perspectives, enthusiasm for learning, 
-                  and a strong commitment to writing clean, efficient code. I'm always eager 
-                  to take on new challenges and contribute to meaningful projects.
+                  Eager to leverage technical and problem-solving skills to build innovative solutions 
+                  in the software industry. To grow and contribute as a IT developer in a dynamic organization.
                 </p>
                 <p>
-                  My goal is to grow as a frontend developer while building applications 
-                  that make a positive impact on users' lives.
+                  Currently pursuing Bachelor of Technology in Computer Science and Engineering 
+                  with specialization in AI and ML from Malla Reddy College of Engineering.
                 </p>
               </div>
             </div>
 
-            {/* Personal Interests */}
             <Card className="glass-effect border-yellow-400/30 bg-yellow-400/5">
               <CardContent className="p-6">
-                <h4 className="text-xl font-semibold text-yellow-400 mb-4">When I'm not coding...</h4>
-                <p className="text-gray-300">
-                  I enjoy exploring new technologies, participating in coding challenges, 
-                  reading tech blogs, and working on personal projects that help me learn 
-                  and grow as a developer.
-                </p>
+                <h4 className="text-xl font-semibold text-yellow-400 mb-4">Contact Information</h4>
+                <div className="space-y-2 text-gray-300">
+                  <p><strong>Mobile:</strong> +917036918762</p>
+                  <p><strong>Location:</strong> Hyderabad-Telangana</p>
+                  <p><strong>Email:</strong> ravitejaraviteja6671@gmail.com</p>
+                </div>
               </CardContent>
             </Card>
           </div>
 
-          {/* Right side - Highlights */}
           <div className="space-y-6 animate-slide-in-right">
             {highlights.map((highlight, index) => (
               <Card 

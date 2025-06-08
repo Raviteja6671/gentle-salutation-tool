@@ -12,7 +12,7 @@ export const Navigation = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
       
-      const sections = ["home", "about", "skills", "experience", "projects", "contact"];
+      const sections = ["home", "about", "experience", "skills", "projects", "contact"];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -37,8 +37,8 @@ export const Navigation = () => {
   const navItems = [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
+    { id: "experience", label: "Education" },
     { id: "skills", label: "Skills" },
-    { id: "experience", label: "Experience" },
     { id: "projects", label: "Projects" },
     { id: "contact", label: "Contact" },
   ];
@@ -56,7 +56,6 @@ export const Navigation = () => {
             Raviteja Kodem
           </div>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
               <button
@@ -74,7 +73,6 @@ export const Navigation = () => {
             ))}
           </div>
 
-          {/* Mobile Navigation Toggle */}
           <Button
             variant="ghost"
             size="icon"
@@ -85,7 +83,6 @@ export const Navigation = () => {
           </Button>
         </div>
 
-        {/* Mobile Navigation Menu */}
         {isOpen && (
           <div className="md:hidden pb-4 professional-card rounded-lg mt-2 animate-fade-in">
             <div className="flex flex-col space-y-2 p-4">

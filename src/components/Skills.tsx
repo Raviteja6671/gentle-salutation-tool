@@ -26,47 +26,37 @@ export const Skills = () => {
 
   const skillCategories = [
     {
-      title: "Frontend Technologies",
-      skills: [
-        { name: "HTML5", level: 95 },
-        { name: "CSS3", level: 90 },
-        { name: "JavaScript", level: 85 },
-        { name: "React", level: 80 },
-        { name: "Tailwind CSS", level: 88 },
-        { name: "Bootstrap", level: 85 },
-        { name: "Responsive Design", level: 90 }
-      ],
-      icon: "🎨"
-    },
-    {
       title: "Programming Languages",
       skills: [
-        { name: "JavaScript", level: 85 },
-        { name: "Python", level: 75 },
-        { name: "Java", level: 70 },
-        { name: "C++", level: 65 }
+        { name: "HTML", level: 90 },
+        { name: "CSS", level: 85 },
+        { name: "Python", level: 80 }
       ],
       icon: "💻"
     },
     {
-      title: "Tools & Technologies",
+      title: "Database",
       skills: [
-        { name: "Git & GitHub", level: 85 },
-        { name: "VS Code", level: 95 },
-        { name: "Figma", level: 80 },
-        { name: "Chrome DevTools", level: 85 },
-        { name: "npm/yarn", level: 80 }
+        { name: "MySQL", level: 75 }
+      ],
+      icon: "🗄️"
+    },
+    {
+      title: "Tools",
+      skills: [
+        { name: "GitHub", level: 80 }
       ],
       icon: "🛠️"
     },
     {
       title: "Soft Skills",
       skills: [
-        { name: "Problem Solving", level: 88 },
-        { name: "Quick Learning", level: 92 },
-        { name: "Team Collaboration", level: 85 },
-        { name: "Communication", level: 80 },
-        { name: "Time Management", level: 85 }
+        { name: "Communication", level: 85 },
+        { name: "Problem-Solving", level: 90 },
+        { name: "Time Management", level: 85 },
+        { name: "Active Listening", level: 80 },
+        { name: "Punctuality", level: 95 },
+        { name: "Patience", level: 85 }
       ],
       icon: "🤝"
     }
@@ -77,11 +67,11 @@ export const Skills = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 animate-fade-in">
-            My <span className="gradient-text">Skills</span>
+            Technical <span className="gradient-text">Skills</span>
           </h2>
           <div className="section-divider mx-auto mb-8 w-32"></div>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto animate-slide-in-left">
-            Technologies and skills I've learned and practiced as a passionate fresher
+            Technologies and skills I've mastered during my academic journey
           </p>
         </div>
 
