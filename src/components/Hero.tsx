@@ -1,35 +1,14 @@
 
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Download, ArrowDown } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Github, Linkedin, Mail, Download } from "lucide-react";
 
 export const Hero = () => {
-  const [text, setText] = useState("");
-  const fullText = "Fullstack Developer & Software Engineer";
-  
-  useEffect(() => {
-    let index = 0;
-    const timer = setInterval(() => {
-      setText(fullText.slice(0, index));
-      index++;
-      if (index > fullText.length) {
-        clearInterval(timer);
-      }
-    }, 100);
-    
-    return () => clearInterval(timer);
-  }, []);
-
   const handleResumeDownload = () => {
     window.open("https://docs.google.com/document/d/1qjrMbh0RD535hKsqsRCJZCEX4Z634t6X/edit", "_blank");
   };
 
-  const scrollToNext = () => {
-    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <section id="home" className="min-h-screen relative overflow-hidden">
+    <section id="home" className="min-h-screen relative">
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -37,28 +16,25 @@ export const Hero = () => {
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-70"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 via-transparent to-black/50"></div>
       </div>
 
       <div className="relative z-10 flex items-center justify-center min-h-screen pt-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-8 animate-fade-in">
+          <div className="text-center space-y-8">
             <div className="space-y-6">
-              <h1 className="text-6xl sm:text-8xl lg:text-9xl font-bold leading-tight">
-                <span className="block text-white drop-shadow-2xl">I'M RAVITEJA</span>
-                <span className="block bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent animate-glow drop-shadow-2xl">
-                  KODEM
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
+                <span className="block text-white">Hello, I'm</span>
+                <span className="block text-cyan-400">
+                  Raviteja Kodem
                 </span>
               </h1>
               
-              <div className="h-16 flex items-center justify-center">
-                <p className="text-2xl sm:text-4xl text-yellow-400 font-light typewriter drop-shadow-lg">
-                  {text}
-                </p>
-              </div>
+              <p className="text-2xl text-gray-300">
+                Fullstack Developer & Software Engineer
+              </p>
             </div>
             
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
+            <p className="text-lg text-gray-200 max-w-3xl mx-auto leading-relaxed">
               Enthusiastic and highly motivated graduate with a strong analytical mindset and a passion for 
               software development. Adept at problem solving, logical thinking, with a solid foundation in 
               programming languages.
@@ -68,73 +44,47 @@ export const Hero = () => {
               <Button 
                 onClick={handleResumeDownload} 
                 size="lg" 
-                className="group px-12 py-6 text-xl bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold hover:from-yellow-500 hover:to-yellow-600 hover-lift shadow-2xl hover:shadow-yellow-400/50 transition-all duration-300 rounded-full"
+                className="px-8 py-3 bg-blue-600 text-white hover:bg-blue-700"
               >
-                <Download className="mr-4 h-6 w-6 group-hover:animate-bounce" />
+                <Download className="mr-2 h-5 w-5" />
                 Download Resume
               </Button>
               
-              <div className="flex gap-6">
+              <div className="flex gap-4">
                 <Button 
                   variant="outline" 
                   size="icon" 
-                  className="w-16 h-16 hover-lift glass-effect border-yellow-400/50 text-yellow-400 hover:bg-yellow-400/20 hover:border-yellow-400 rounded-full shadow-lg"
+                  className="w-12 h-12 border-gray-400 text-gray-300 hover:bg-gray-700"
                   asChild
                 >
                   <a href="https://github.com/Raviteja6671" target="_blank" rel="noopener noreferrer">
-                    <Github className="h-8 w-8" />
+                    <Github className="h-5 w-5" />
                   </a>
                 </Button>
                 <Button 
                   variant="outline" 
                   size="icon" 
-                  className="w-16 h-16 hover-lift glass-effect border-yellow-400/50 text-yellow-400 hover:bg-yellow-400/20 hover:border-yellow-400 rounded-full shadow-lg"
+                  className="w-12 h-12 border-gray-400 text-gray-300 hover:bg-gray-700"
                   asChild
                 >
                   <a href="https://www.linkedin.com/in/raviteja-kodem-841761337" target="_blank" rel="noopener noreferrer">
-                    <Linkedin className="h-8 w-8" />
+                    <Linkedin className="h-5 w-5" />
                   </a>
                 </Button>
                 <Button 
                   variant="outline" 
                   size="icon" 
-                  className="w-16 h-16 hover-lift glass-effect border-yellow-400/50 text-yellow-400 hover:bg-yellow-400/20 hover:border-yellow-400 rounded-full shadow-lg"
+                  className="w-12 h-12 border-gray-400 text-gray-300 hover:bg-gray-700"
                   asChild
                 >
                   <a href="mailto:ravitejaraviteja6671@gmail.com">
-                    <Mail className="h-8 w-8" />
+                    <Mail className="h-5 w-5" />
                   </a>
                 </Button>
               </div>
             </div>
-
-            <div className="pt-12">
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={scrollToNext}
-                className="hover:text-yellow-400 animate-float text-white w-16 h-16 rounded-full"
-              >
-                <ArrowDown className="h-8 w-8" />
-              </Button>
-            </div>
           </div>
         </div>
-      </div>
-
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 bg-yellow-400 rounded-full opacity-30 animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 4}s`,
-              animationDuration: `${4 + Math.random() * 4}s`
-            }}
-          />
-        ))}
       </div>
     </section>
   );

@@ -1,118 +1,64 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { useState, useEffect, useRef } from "react";
 
 export const Skills = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   const skillCategories = [
     {
       title: "Programming Languages",
-      skills: [
-        { name: "HTML", level: 90 },
-        { name: "CSS", level: 85 },
-        { name: "Python", level: 80 }
-      ],
-      icon: "💻"
+      skills: ["HTML", "CSS", "Python"],
+      icon: "P",
+      bgColor: "bg-cyan-500"
     },
     {
       title: "Database",
-      skills: [
-        { name: "MySQL", level: 75 }
-      ],
-      icon: "🗄️"
+      skills: ["MySQL"],
+      icon: "D",
+      bgColor: "bg-cyan-500"
     },
     {
-      title: "Tools",
-      skills: [
-        { name: "GitHub", level: 80 }
-      ],
-      icon: "🛠️"
+      title: "Version Control",
+      skills: ["GitHub", "Git"],
+      icon: "V",
+      bgColor: "bg-cyan-500"
     },
     {
-      title: "Soft Skills",
-      skills: [
-        { name: "Communication", level: 85 },
-        { name: "Problem-Solving", level: 90 },
-        { name: "Time Management", level: 85 },
-        { name: "Active Listening", level: 80 },
-        { name: "Punctuality", level: 95 },
-        { name: "Patience", level: 85 }
-      ],
-      icon: "🤝"
+      title: "Others",
+      skills: ["Communication", "Problem-Solving", "Time Management", "Active Listening", "Punctuality", "Patience"],
+      icon: "O",
+      bgColor: "bg-blue-600"
     }
   ];
 
   return (
-    <section ref={sectionRef} id="skills" className="py-20 bg-gray-900/50 relative">
+    <section id="skills" className="py-20 bg-gray-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 animate-fade-in">
-            Technical <span className="gradient-text">Skills</span>
+          <h2 className="text-4xl font-bold text-white mb-6">
+            Technical Skills
           </h2>
-          <div className="section-divider mx-auto mb-8 w-32"></div>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto animate-slide-in-left">
-            Technologies and skills I've mastered during my academic journey
-          </p>
+          <div className="w-32 h-1 bg-cyan-400 mx-auto"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {skillCategories.map((category, index) => (
-            <Card 
-              key={index} 
-              className={`hover-lift glass-effect border-yellow-400/30 bg-black/40 backdrop-blur-lg transition-all duration-700 ${
-                isVisible ? 'animate-fade-in' : 'opacity-0'
-              }`}
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              <CardHeader className="text-center">
-                <div className="text-4xl mb-4">{category.icon}</div>
-                <CardTitle className="text-xl gradient-text">{category.title}</CardTitle>
+            <Card key={index} className="bg-gray-700 border-gray-600">
+              <CardHeader className="text-center pb-4">
+                <div className={`w-12 h-12 ${category.bgColor} rounded-lg flex items-center justify-center mx-auto mb-4`}>
+                  <span className="text-white text-xl font-bold">{category.icon}</span>
+                </div>
+                <CardTitle className="text-lg text-gray-300">{category.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
+                <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill, skillIndex) => (
-                    <div key={skillIndex} className="space-y-2">
-                      <div className="flex justify-between items-center">
-                        <Badge 
-                          variant="secondary"
-                          className="bg-yellow-400/20 text-yellow-400 border-yellow-400/50 hover:bg-yellow-400/30 transition-colors cursor-pointer"
-                        >
-                          {skill.name}
-                        </Badge>
-                        <span className="text-sm text-gray-400">{skill.level}%</span>
-                      </div>
-                      <div className="w-full bg-gray-700 rounded-full h-2">
-                        <div 
-                          className={`skill-bar h-2 rounded-full transition-all duration-1000 ${
-                            isVisible ? '' : 'w-0'
-                          }`}
-                          style={{ 
-                            width: isVisible ? `${skill.level}%` : '0%',
-                            transitionDelay: `${(index * 0.2) + (skillIndex * 0.1)}s`
-                          }}
-                        />
-                      </div>
-                    </div>
+                    <Badge 
+                      key={skillIndex}
+                      variant="secondary"
+                      className="bg-gray-600 text-gray-300 border-gray-500"
+                    >
+                      {skill}
+                    </Badge>
                   ))}
                 </div>
               </CardContent>
