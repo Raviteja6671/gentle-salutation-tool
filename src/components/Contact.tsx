@@ -25,7 +25,7 @@ export const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const { name, email, subject, message } = formData;
-    const mailtoLink = `mailto:raviteja.kodem@example.com?subject=${encodeURIComponent(subject || 'Contact from Portfolio')}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+    const mailtoLink = `mailto:ravitejaraviteja6671@gmail.com?subject=${encodeURIComponent(subject || 'Contact from Portfolio')}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
     window.open(mailtoLink, '_blank');
   };
 
@@ -33,14 +33,14 @@ export const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "raviteja.kodem@example.com",
-      href: "mailto:raviteja.kodem@example.com"
+      value: "ravitejaraviteja6671@gmail.com",
+      href: "mailto:ravitejaraviteja6671@gmail.com"
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+91 99999 99999",
-      href: "tel:+919999999999"
+      value: "+91 7036918762",
+      href: "tel:+917036918762"
     },
     {
       icon: MapPin,
@@ -225,7 +225,7 @@ export const Contact = () => {
         {/* Footer */}
         <div className="text-center mt-16 pt-8 border-t border-border">
           <p className="text-muted-foreground">
-            © 2024 Raviteja Kodem. Built with React and Tailwind CSS.
+            © 2025 Raviteja Kodem. Built with React and Tailwind CSS.
           </p>
         </div>
       </div>
