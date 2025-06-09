@@ -27,7 +27,7 @@ export const Experience = () => {
                     Bachelor of Technology in Computer Science Engineering
                   </h3>
                   <p className="text-gray-600 mb-2">
-                    MRCE
+                    <span className="font-bold text-black">MRCE</span> <span className="font-bold text-black">(Malla Reddy College of Engineering)</span>
                   </p>
                   <p className="text-gray-600 mb-4">Graduated in 2025</p>
                   <p className="text-gray-700 leading-relaxed">
