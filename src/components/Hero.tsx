@@ -12,7 +12,7 @@ export const Hero = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('/lovable-uploads/1932ce34-1537-49b9-9f5d-2286e71b324c.png')`,
+          backgroundImage: `url('/lovable-uploads/92c36c32-24b5-4ed9-9f9a-a69d32a7bdfa.png')`,
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-70"></div>

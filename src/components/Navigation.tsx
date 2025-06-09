@@ -12,7 +12,7 @@ export const Navigation = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
       
-      const sections = ["home", "about", "experience", "skills", "projects", "contact"];
+      const sections = ["home", "about", "education", "skills", "projects", "contact"];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -35,10 +35,9 @@ export const Navigation = () => {
   };
 
   const navItems = [
-    { id: "home", label: "About" },
+    { id: "about", label: "About" },
     { id: "skills", label: "Skills" },
-    { id: "experience", label: "Experience" },
-    { id: "about", label: "Education" },
+    { id: "education", label: "Education" },
     { id: "projects", label: "Projects" },
     { id: "contact", label: "Contact" },
   ];
