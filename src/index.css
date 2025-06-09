@@ -1,0 +1,296 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Enhanced color scheme with yellow, black, and white */
+
+@layer base {
+  :root {
+    --background: 0 0% 5%;
+    --foreground: 45 100% 98%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 45 100% 98%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 45 100% 98%;
+
+    --primary: 45 100% 55%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 45 100% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 45 20% 70%;
+
+    --accent: 45 100% 55%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 45 20% 25%;
+    --input: 0 0% 20%;
+    --ring: 45 100% 55%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 45 100% 98%;
+    --card: 0 0% 8%;
+    --card-foreground: 45 100% 98%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 45 100% 98%;
+    --primary: 45 100% 55%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 45 100% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 45 20% 70%;
+    --accent: 45 100% 55%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 45 100% 98%;
+    --border: 45 20% 25%;
+    --input: 0 0% 20%;
+    --ring: 45 100% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-black text-white;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+/* Enhanced animations and effects */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(255, 193, 7, 0.4);
+    text-shadow: 0 0 20px rgba(255, 193, 7, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 60px rgba(255, 193, 7, 0.8);
+    text-shadow: 0 0 40px rgba(255, 193, 7, 0.9);
+  }
+}
+
+@keyframes typewriter {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent }
+  50% { border-color: #ffc107; }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 1s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 1s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #ffc107 0%, #ff8f00 50%, #ffc107 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hover-lift {
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(255, 193, 7, 0.3);
+}
+
+.section-divider {
+  background: linear-gradient(90deg, transparent 0%, #ffc107 50%, transparent 100%);
+  height: 2px;
+  width: 100%;
+}
+
+.typewriter {
+  overflow: hidden;
+  border-right: .15em solid #ffc107;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .05em;
+  animation: 
+    typewriter 3.5s steps(40, end),
+    blink .75s step-end infinite;
+}
+
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  background: linear-gradient(45deg, #ffc107, #ff8f00);
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: float 6s ease-in-out infinite;
+}
+
+.skill-bar {
+  background: linear-gradient(90deg, #ffc107 0%, #ff8f00 50%, #ffc107 100%);
+  height: 6px;
+  border-radius: 3px;
+  transition: width 2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shine 2s infinite;
+}
+
+/* Professional card styles */
+.professional-card {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.9) 100%);
+  border: 1px solid rgba(255, 193, 7, 0.2);
+  backdrop-filter: blur(20px);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.professional-card:hover {
+  border-color: rgba(255, 193, 7, 0.5);
+  box-shadow: 0 20px 40px rgba(255, 193, 7, 0.1);
+  transform: translateY(-8px);
+}
+
+/* Button enhancements */
+.btn-primary {
+  background: linear-gradient(135deg, #ffc107 0%, #ff8f00 100%);
+  color: #000;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #ffc107, #ff8f00);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #ff8f00, #ffc107);
+}
